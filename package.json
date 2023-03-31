@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "name": "quik-drop",
+  "description": "--- Seemless file transfer from **pc** to **mobile devices** with *Quik Snip* without usage of data.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somtodev/quik-drop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somtodev/quik-drop/issues"
+  },
+  "homepage": "https://github.com/somtodev/quik-drop#readme"
+}
