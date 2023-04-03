@@ -1,10 +1,12 @@
 const fs = require('fs')
 
-const uploadFile = (req, res) => {
+
+const uploadFiles = (req, res) => {
     res.status(200).send('File uploaded successfully')
 }
 
 const downloadFile = (req, res) => {
+
     const filename = req.params.filename;
     const file = `./files/${filename}`
 
@@ -35,4 +37,4 @@ const getFiles = (req, res) => {
     
 }
 
-module.exports = { uploadFile, downloadFile, getFiles }
+module.exports = {  uploadFiles, downloadFile, getFiles }
