@@ -12,5 +12,23 @@
     <script defer type="module" src="/assets/scripts/main.js"></script>
   </head>
   
-  <body></body>
+  <body>
+
+    <h1>Send Files</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <button type="submit">Upload</button>
+    </form>
+
+    <hr>
+
+
+    <h2>Download Files</h2>
+
+    <ul file-list>
+      
+    </ul>
+
+  </body>
 </html>
