@@ -1,8 +1,11 @@
-const fs = require('fs')
+const fs = require('fs');
+const path = require('path');
 
 
 const uploadFiles = (req, res) => {
-    res.status(200).send('File uploaded successfully')
+    res.render('send', {
+        message: "File uploaded successfully"
+    })
 }
 
 const downloadFile = (req, res) => {
@@ -30,7 +33,6 @@ const getFiles = (req, res) => {
         if (err) {
             console.log('Error getting directory information:', err);
         } else {
-            console.log('List of files in the directory:');
             res.json(files)
         }
     });

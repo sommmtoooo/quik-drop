@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Montagu+Slab:wght@100;200;300&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+
+:root {
+    --body-font: 'Manrope', sans-serif;
+    --header-font: 'Space Grotesk', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+}
+
+h1,h2,h3,h4,h5{
+    font-family:var(--header-font);
+}
+
+ul {
+    margin: 2em 0;
+}
+
+ul li{
+    max-width:100%;
+    overflow-x: hidden;
+    margin:.25em 0;
+    font-size:1rem;
+    padding:.25em;
+    background-color:#EEE;
+    border-radius:.25em;
+}
+
+ul li img {
+    max-width: 1.25em;
+    max-height: 1.25em;
+    margin-right:.25em;
+    object-fit: cover;
+}

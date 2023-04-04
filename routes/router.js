@@ -21,11 +21,27 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-router.post('/upload', upload.array('files'), uploadFiles)
+router.get('/receive', (req, res) => {
+    res.render('receive')
+})
+
+router.get('/send', (req, res) => {
+    res.render('send', {
+        message: ""
+    })
+})
+
+router.get('/files', getFiles)
 
 router.get('/download/:filename', downloadFile)
 
-router.get('/files', getFiles)
+router.get('/*', (req, res) => {
+    res.render('notfound')
+})
+
+router.post('/upload', upload.array('files'), uploadFiles)
+
+
 
 
 module.exports = router

@@ -5,7 +5,8 @@
     "multer": "^1.4.5-lts.1"
   },
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build-tail": "NODE_ENV=production tailwindcss build -i lib/tailwindcss/tailwind.css -o public/assets/styles/main.css --watch"
   },
   "name": "quik-drop",
   "description": "--- Seemless file transfer from **pc** to **mobile devices** with *Quik Snip* without usage of data.",
