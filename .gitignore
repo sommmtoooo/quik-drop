@@ -1,3 +1,7 @@
+# Bloat Directories
 node_modules
 uploads
 files
+
+# Auto Generated Files
+assets/styles/main.css
