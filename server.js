@@ -1,8 +1,10 @@
 const express = require('express')
 const path = require('path');
+const { exec } = require('child_process')
 
 
-const app_router = require('./routes/router')
+const app_router = require('./routes/router');
+const { stdin } = require('process');
 
 const app = express()
 
@@ -17,5 +19,13 @@ app.use('/', app_router)
 
 
 app.listen(PORT, hostname, () => {
-    console.log(`Server running at http://${hostname}:${PORT}/`);
+    exec('hostname -I', (err,stdout,stderr) => {
+        if(err){
+            console.log("An error occured")
+        }
+
+        console.log(`IP:${stdout}`);
+        console.log(`PORT:${PORT}`);
+        
+    })
 })

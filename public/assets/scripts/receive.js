@@ -1,8 +1,15 @@
 fetch('/files')
     .then(res => res.json())
     .then(files => {
-        console.log("files")
+
         const file_list = document.querySelector('[file-list]')
+
+        if(!files.length){
+            const listItem = document.createElement('li')
+            listItem.textContent = "No Files"
+            file_list.append(listItem)
+            return
+        }
 
         files.forEach(file => {
             const icon = document.createElement('img')
