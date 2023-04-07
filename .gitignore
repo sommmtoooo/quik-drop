@@ -5,3 +5,9 @@ files
 
 # Auto Generated Files
 assets/styles/main.css
+
+# Vim backup files
+ 
+*~
+*.swp
+*.swo
