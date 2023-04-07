@@ -7,7 +7,9 @@ files
 assets/styles/main.css
 
 # Vim backup files
- 
 *~
 *.swp
 *.swo
+
+# Private Details
+keys.txt
