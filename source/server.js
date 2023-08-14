@@ -1,33 +1,45 @@
-const express = require('express')
-const path = require('path');
-const { exec } = require('child_process')
+const express = require("express");
+const path = require("path");
+const { exec } = require("child_process");
+const figlet = require("figlet");
+const chalk = require("chalk")
 
+const app_router = require("./routes/router");
+const { stdin } = require("process");
+const { data } = require("autoprefixer");
 
-const app_router = require('./routes/router');
-const { stdin } = require('process');
+const app = express();
 
-const app = express()
+const hostname = false ? "192.168.114" : "0.0.0";
+const PORT = 8080;
 
-const hostname = false ? '192.168.114' : '0.0.0';
-const PORT = 8080
+app.use(express.static(path.join(__dirname, "../public")));
 
-app.use(express.static(path.join(__dirname, '../public')))
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "../source/views"));
 
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, '../source/views'))
-
-app.use('/', app_router)
-
+app.use("/", app_router);
 
 app.listen(PORT, hostname, () => {
-
-    exec('hostname -I', (err,stdout,stderr) => {
-        if(err){
-            console.log("An error occured")
+    exec("hostname -I", (err, stdout, stderr) => {
+        if (err) {
+            console.log("An error occured");
+            return;
         }
 
-        console.log(`IP:${stdout}`);
-        console.log(`PORT:${PORT}`);
-        
-    })
-})
+        figlet("Quik Drop", function (err, data) {
+            if (err) {
+                console.log("Ops: Something Went Error");
+                if (process.env.MODE) {
+                    console.log(err);
+                    return;
+                }
+            }
+            console.log(data);
+            const format = `(LINK): ${chalk.white.bgBlue(
+                `http://${stdout.trim()}:${PORT}`
+            )}`;
+            console.log(format);
+        });
+    });
+});
