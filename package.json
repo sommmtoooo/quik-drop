@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon ./source/server.js",
-    "build-tail": "NODE_ENV=production tailwindcss build -i lib/tailwindcss/tailwind.css -o public/assets/styles/main.css --watch"
+    "build-tail": "NODE_ENV=production tailwindcss build -i source/lib/tailwindcss/tailwind.css -o public/assets/styles/main.css --watch"
   },
   "name": "quik-drop",
   "description": "--- Seemless file transfer from **pc** to **mobile devices** with *Quik Drop* without usage of data.",

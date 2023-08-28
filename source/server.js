@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const { exec } = require("child_process");
 const figlet = require("figlet");
-const chalk = require("chalk")
+const chalk = require("chalk");
 
 const app_router = require("./routes/router");
 const { stdin } = require("process");
@@ -21,6 +21,7 @@ app.set("views", path.join(__dirname, "../source/views"));
 app.use("/", app_router);
 
 app.listen(PORT, hostname, () => {
+    let format;
     exec("hostname -I", (err, stdout, stderr) => {
         if (err) {
             console.log("An error occured");
@@ -31,14 +32,22 @@ app.listen(PORT, hostname, () => {
             if (err) {
                 console.log("Ops: Something Went Error");
                 if (process.env.MODE) {
+
                     console.log(err);
                     return;
                 }
             }
             console.log(data);
-            const format = `(LINK): ${chalk.white.bgBlue(
-                `http://${stdout.trim()}:${PORT}`
-            )}`;
+            if (stdout) {
+                format = `(LINK): ${chalk.white.bgBlue(
+                    `http://${stdout.trim()}:${PORT}`
+                )}`;
+            } else {
+                format = `(LINK): ${chalk.white.bgBlue(
+                    `http://localhost:${PORT}`
+                )}`;
+            }
+
             console.log(format);
         });
     });
