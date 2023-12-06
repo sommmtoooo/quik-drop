@@ -1,7 +1,7 @@
 {
   "name": "quik-drop",
   "description": "--- Seemless file transfer from **pc** to **mobile devices** with *Quik Drop* without usage of data.",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "./source/server.js",
   "repository": {
     "type": "git",
