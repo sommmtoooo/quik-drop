@@ -41,10 +41,9 @@ app.listen(PORT, hostname, () => {
       console.log(data);
 
       if (stdout) {
-        format = `(LINK): ${chalk.white.bgBlue(
-          `http://${stdout.trim()}:${PORT}`,
-        )}`;
-        qr_format = `http://${stdout.trim()}:${PORT}`;
+        const url = stdout.split(" ")[0];
+        format = `(LINK): ${chalk.white.bgBlue(`http://${url}:${PORT}`)}`;
+        qr_format = `http://${url}:${PORT}`;
       } else {
         format = `(LINK): ${chalk.white.bgBlue(`http://localhost:${PORT}`)}`;
         qr_format = `http://localhost:${PORT}`;
