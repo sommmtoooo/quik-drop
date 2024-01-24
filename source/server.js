@@ -40,6 +40,13 @@ app.listen(PORT, hostname, () => {
 
       console.log(data);
 
+      const { openUrl } = require("./utils/index");
+
+      const storagepath = path.join(__dirname, "files");
+      openUrl(storagepath).then(() => {
+        console.log("Quik Drop: Opening File Storage Location");
+      });
+
       if (stdout) {
         const url = stdout.split(" ")[0];
         format = `(LINK): ${chalk.white.bgBlue(`http://${url}:${PORT}`)}`;

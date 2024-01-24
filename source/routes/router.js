@@ -28,10 +28,6 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/checker", (req, res) => {
-  res.status(200).send('{message: "Shiit"}');
-});
-
 router.get("/receive", (req, res) => {
   res.render("receive");
 });
